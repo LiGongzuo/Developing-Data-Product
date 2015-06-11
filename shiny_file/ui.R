@@ -1,0 +1,37 @@
+library(shiny)
+
+shinyUI(pageWithSidebar(
+        headerPanel("Stock CandleStick Charts"),
+        sidebarPanel(
+                
+                textInput('stockcode', 'Input the Stock code: ',"000002"),
+                checkboxGroupInput("exchange", "Choose the Stock Exchange :",
+                                   c("Shanghai" = "ss",
+                                     "Shenzhen" = "sz",
+                                     "Hongkong"="hk"),
+                                   selected=c("sz")),
+                dateInput("from", "Choose the date from:",value = '2015-01-02'),
+                dateInput("to", "Choose the date to:"),
+                
+                submitButton('Submit')
+        ),
+        mainPanel(
+                
+                h3('Your Choose:'),
+                h4('the Stock code:'),
+                verbatimTextOutput("ostockcode"),
+                h4('the Stock Exchange:'),
+                verbatimTextOutput("oexchange"),
+                
+                h4('date from:'),
+                verbatimTextOutput("ofrom"),
+                h4('date to:'),
+                verbatimTextOutput("oto"),
+               
+                h3('The stock symbol:'),
+                verbatimTextOutput("stock"),
+                
+                h3('The CandleStick Charts :'),
+                plotOutput('newplot')
+        )
+))
