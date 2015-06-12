@@ -1,4 +1,11 @@
+#setwd("C:/Users/Alan GZ Li/Documents/GitHub/Developing-Data-Product/shiny_file")
+library(plyr)
+library(quantmod)
+library(TTR)
+library(ggplot2)
+library(scales)
 library(shiny)
+
 
 shinyUI(pageWithSidebar(
         headerPanel("Stock CandleStick Charts"),
@@ -16,6 +23,11 @@ shinyUI(pageWithSidebar(
                 submitButton('Submit')
         ),
         mainPanel(
+                h3('how to get start?'),
+                h4('1.The Stock CandleStick Charts App was created by Gongzuo Li (https://github.com/LiGongzuo), in order to plot the CandleStick charts of a stock in the specified period.'),
+                h4('2.The stocks can come from ShanghaiShanghai Stock Exchange (ss), Shenzhen Stock Exchange(ss), Hong Kong Stock Exchange (hk)'),
+                h4('3.You should choose the sctok and the date firstly and submit, then you can get the CandleStick charts below.'),
+                
                 
                 h3('Your Choose:'),
                 h4('the Stock code:'),
